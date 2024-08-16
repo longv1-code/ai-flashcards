@@ -141,7 +141,7 @@ export default function Generate() {
                                                             {flashcard.front}
                                                         </Typography>
                                                     </div>
-                                                    <div>
+                                                    <div style={{overflow: "auto", display:'flex', alignItems:'flex-start'}}>
                                                         <Typography variant="h5" component={"div"}>
                                                             {flashcard.back}
                                                         </Typography>

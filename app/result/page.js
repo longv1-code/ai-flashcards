@@ -19,9 +19,7 @@ const ResultPage = () => {
 
     useEffect(() => {
         const fetchCheckoutSession = async () => {
-            if (!session_id) {
-                return
-            }
+            if (!session_id) return
 
             try{
                 const res = await fetch(`/api/checkout_session?session_id=${session_id}`)
@@ -39,8 +37,9 @@ const ResultPage = () => {
                 setLoading(false)
             }
 
-            fetchCheckoutSession()
         }
+        fetchCheckoutSession()
+
     }, [session_id])
 
     if (loading) {
@@ -78,7 +77,7 @@ const ResultPage = () => {
                     <>
                     <Typography variant="h4">Thank you for purchasing</Typography>
                     <Box sx={{mt:22}}>
-                        <Typography variant="h6">Session ID: {session_id}</Typography>
+                        {/* <Typography variant="h6">Session ID: {session_id}</Typography> */}
                         <Typography variant="body1">
                             We have received your payment. You will receive an email with the order details shortly
                         </Typography> 
@@ -88,7 +87,7 @@ const ResultPage = () => {
                 (<>
                 <Typography variant="h4">Payment Failed</Typography>
                     <Box sx={{mt:22}}>
-                        <Typography variant="h6">Session ID: {session_id}</Typography>
+                        {/* <Typography variant="h6">Session ID: {session_id}</Typography> */}
                         <Typography variant="body1">
                             Your payment was not sucessful. Please try again.
                         </Typography> 

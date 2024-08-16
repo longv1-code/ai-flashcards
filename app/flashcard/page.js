@@ -2,7 +2,7 @@
 
 import { useUser } from "@clerk/nextjs"
 import { useEffect, useState } from "react"
-import { collection, doc, getDoc, getDocs } from "firebase/firestore"
+import { collection, doc, getDoc, getDocs, setDoc } from "firebase/firestore"
 import { db } from "@/firebase"
 import { Box, Button, Card, CardActionArea, CardContent, Container, Grid, Typography } from "@mui/material"
 
@@ -29,12 +29,6 @@ export default function Flashcard() {
             })
             setFlashCards(flashcards)
 
-
-            if (docSnap.exists()) {
-                const collections = docSnap.data().flashcards || []
-            } else {
-                await setDoc(docRef, {flashcards: []})
-            }
         }
         getFlashcard()
     }, [user, search])
