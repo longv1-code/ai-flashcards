@@ -3,7 +3,7 @@
 import Image from "next/image";
 import getStripe from "@/utils/get-stripe";
 import { SignedIn, SignedOut, UserButton } from "@clerk/nextjs";
-import { AppBar, Button, Container, Toolbar, Typography, Box, Grid } from "@mui/material";
+import { AppBar, Button, Container, Toolbar, Typography, Box, Grid, Link } from "@mui/material";
 import Head from 'next/head'
 
 export default function Home() {
@@ -38,28 +38,28 @@ export default function Home() {
         <title>ai-flashcards</title>
         <meta name="description" content="Create flashcards from your text" />
       </Head>
-
-      <AppBar position="static"> 
-        <Toolbar>
-          <Typography variant ='h6' style={{flexGrow:1}}>flashcards</Typography>
+        <Toolbar position="static">
+        <Typography style={{flexGrow:1, fontSize: "24px"}}><Link href="#" underline="none" sx={{color:"#333333"}}>SmartCram</Link></Typography>
+        <Typography style={{flexGrow:1, fontSize: "18px"}}><Link href="#" underline="none" sx={{color:"#333333"}}>Product</Link></Typography>
+        <Typography style={{flexGrow:1, fontSize: "18px"}}><Link href="#" underline="none" sx={{color:"#333333"}}>Pricing</Link></Typography>
+        <Typography style={{flexGrow:1, fontSize: "18px"}}><Link href="/flashcards" underline="none" sx={{color:"#333333"}}>Dashboard</Link></Typography>
           <SignedOut>
             <Button color="inherit" href="/sign-in">Login</Button>
-            <Button color="inherit" href="/sign-in">Sign Up</Button>
+            <Button color="inherit" href="/sign-up">Sign Up</Button>
           </SignedOut>
           <SignedIn>
             <UserButton />
           </SignedIn>
         </Toolbar>
-      </AppBar>
 
       <Box
       sx={{
         textAlign:'center',
         my:4
       }}>
-        <Typography variant="h2" gutterBottom>Welcome to fl.ai.sh</Typography>
+        <Typography variant="h2" gutterBottom>Welcome to SmartCram!</Typography>
         <Typography variant="h5" gutterBottom>The easiest way to make flashcards from scratch</Typography>
-        <Button variant="contained" color="primary" sx={{mt:2}}>Get Started</Button>
+        <Button variant="contained" color="primary" sx={{mt:2}} href="/generate">Get Started</Button>
       </Box>
       
       <Box sx={{my:6}}>
@@ -101,7 +101,7 @@ export default function Home() {
               borderRadius: 2
             }}>
             <Typography variant="h5" gutterBottom>Basic</Typography>
-            <Typography variant="h6" gutterBottom>$5 / month</Typography>
+            <Typography variant="h6" gutterBottom>Free</Typography>
             <Typography>
               {' '}
               Access to basic flashcards features and limited storage
@@ -118,7 +118,7 @@ export default function Home() {
               borderRadius: 2
             }}>
             <Typography variant="h5" gutterBottom>Pro</Typography>
-            <Typography variant="h6" gutterBottom>$10 / month</Typography>
+            <Typography variant="h6" gutterBottom>$2 One-Time</Typography>
             <Typography>
               {' '}
               Unlimited flashcards and storage with priority support.
